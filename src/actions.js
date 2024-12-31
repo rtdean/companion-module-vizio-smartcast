@@ -33,6 +33,7 @@ module.exports = {
 					self.log('info', `Authorization token: ${response.ITEM.AUTH_TOKEN}`);
 
 					self.config.authToken = response.ITEM.AUTH_TOKEN;
+					self.saveConfig(self.config);
 					self.configUpdated(self.config);
 				}).catch(response => {
 					self.log('debug', `Pairing failed. ${JSON.stringify(response.STATUS)}`);
